@@ -101,3 +101,55 @@ cd ..
 Нажмите `OK`
 
 ![image](https://github.com/ArtemA1ekseev/selenium-java-testing/assets/113195869/749ba53c-a49f-45ee-9510-29876a37c937)
+
+## 1.2 Подключение browser driver
+Независимо от того, на каком языке программирования вы напишете код, операция подключения `browser driver` будет примерно одинаковой.
+
+Об этом можно прочитать в статье [Connecting the browser driver in Selenium](https://testsetup.ru/selenium/#driver)
+
+## 1.3 Простой тест
+
+Чтобы убедиться, что `Selenium` успешно подключен, вставьте следующий код и скомпилируйте его.
+
+```java
+package org.test;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebDriverDemo1 {
+    public static void main(String[] args) {
+
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver\\chromedriver.exe"); //setting the path for chrome driver
+
+        WebDriver driver = new ChromeDriver(); //creating object for chrome driver
+
+        driver.get("https://www.selenium.dev/selenium/web/web-form.html"); //opens the browser and navigates to the URL
+        
+
+    }
+}
+```
+
+Если вы не хотите или не можете редактировать `PATH` переменную, попробуйте зарегистрировать путь к драйверу - вставьте перед строкой `WebDriver driver = ...`
+
+```java
+driver.get("https://www.selenium.dev/selenium/web/web-form.html"); //opens the browser and navigates to the URL
+```
+
+#  2. Поиск элементов
+## 2.1 Простой тест
+
+Прежде всего, необходимо подключит `By` в `Java`, это делается следующим образом:
+
+```java
+import org.openqa.selenium.By;
+```
+
+Часто бывает недостаточно просто найти элемент. Чтобы выполнить какие-то действия над найденным, подключите `WebElement`
+
+```java
+import org.openqa.selenium.WebElement;
+```
+
+## 2.2 Заполнение простых форм
