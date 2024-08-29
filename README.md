@@ -1,7 +1,7 @@
 # Selenium-Java-Autotesting-ISSN.ORG
 `Selenium-Java-Autotesting`
 
-<p align="center"><a href="https://selenium.dev"><img src="[https://selenium.dev/images/selenium_logo_square_green.png](https://habrastorage.org/getpro/habr/post_images/4f5/19c/8bd/4f519c8bdf0689062fec07bdc1480232.png)" width="100" alt="Selenium"/></a></p>
+<p align="center"><a href="https://selenium.dev"><img src="[[https://selenium.dev/images/selenium_logo_square_green.png](https://habrastorage.org/getpro/habr/post_images/4f5/19c/8bd/4f519c8bdf0689062fec07bdc1480232.png)" width="100" alt="Selenium](https://cdn.icon-icons.com/icons2/3915/PNG/512/selenium_logo_icon_249659.png)"/></a></p>
 
 `Selenium` — это бесплатная среда для автоматизированного тестирования (с открытым исходным кодом), которая используется при проверке веб-приложений в различных браузерах и на разных платформах. Для создания тестовых сценариев`Selenium` мы можем использовать разные языки программирования, такие как `Java, C#, Python, Ruby , PHP` и т.д. 
 
