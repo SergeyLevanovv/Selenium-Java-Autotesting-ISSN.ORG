@@ -153,3 +153,129 @@ import org.openqa.selenium.WebElement;
 ```
 
 ## 2.2 Заполнение простых форм
+
+Давайте воспользуемся самым надежным методом - по `id`. После изучения исходного кода страницы вы увидите следующий код
+
+```java
+package com.example.selenium;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class SeleniumApplicationTests {
+    WebDriver driver;
+    String baseUrl, nodeURL;
+
+    @Before
+    public void setUp() throws MalformedURLException {
+        baseUrl = "https://www.issn.org/ru/";
+        nodeURL = "http://192.168.138.4:4444/wd/hub";
+        DesiredCapabilities capability = new DesiredCapabilities();
+        capability.setBrowserName("chrome");
+        capability.setPlatform(Platform.WIN10);
+        driver = new RemoteWebDriver(new URL(nodeURL), capability);
+    }
+
+    @Test
+    public void simpleTest() {
+        driver.get(baseUrl);
+        Assert.assertEquals("SeleniumHQ Browser Automation", driver.getTitle());
+    }
+
+    @After
+     public void afterTest() {
+        driver.quit();
+    }
+}
+```
+
+## 2.2.1 Заполнение простых форм
+
+```java
+package com.example.demo2;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class Test1 {
+    public static void main(String[] args) throws MalformedURLException {
+        DesiredCapabilities capability = new DesiredCapabilities();
+        capability.setCapability(CapabilityType.BROWSER_NAME,"chrome");
+        WebDriver driver = new RemoteWebDriver(new URL("http://192.168.138.4:4444"), capability);
+        driver.get("https://www.issn.org/ru/");
+        System.out.println("Title of the page is " + driver.getTitle());
+        driver.close();
+    }
+}
+```
+
+## 2.3 Кликните по ссылке - поиск по тексту
+
+Используя `linkText`, найдите все ссылки с текстом `Renovation`, выберите первую из них и нажмите на нее
+
+```java
+package com.example.demo3;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://www.issn.org/ru/");
+
+        WebElement renovationLink = driver.findElements(By.linkText("План сайта")).get(0);
+        renovationLink.click();
+    }
+}
+```
+
+## 2.4 Переход по `tagName`
+
+Теперь давайте посмотрим на картинку. Давайте воспользуемся поиском по тегам
+
+```java
+package com.example.demo3;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        WebDriver driver = new ChromeDriver();
+        // 4. По tagName
+
+        driver.get("https://www.issn.org/ru/");
+
+        WebElement imageLink =
+                driver.findElements(By.tagName("img")).get(1);
+        imageLink.click();
+    }
+}
+```
+
